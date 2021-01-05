@@ -47,7 +47,7 @@ class _LoginFormState extends State<LoginForm> {
             final loginOk = await authService.login(
                 emailCtrl.text.trim(), passwordCtrl.text.trim());
             if (loginOk) {
-              Navigator.pushReplacementNamed(context, 'ProfilePage');
+              Navigator.pushNamedAndRemoveUntil(context, 'ProfilePage', (route) => false);
             } else {
               mostrarAlerta(context, 'Estado del Login', 'Error al ingresar');
             }

@@ -68,7 +68,9 @@ class _BodyState extends State<Body> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(width: 30,),
+                SizedBox(
+                  width: 30,
+                ),
                 Align(
                   alignment: Alignment.center,
                   child: CircleAvatar(
@@ -76,18 +78,17 @@ class _BodyState extends State<Body> {
                     backgroundColor: Colors.orangeAccent[700],
                     child: ClipOval(
                       child: SizedBox(
-                        width: 180.0,
-                        height: 180.0,
-                        child: (_image != null)
-                            ? Image.file(
-                                _image,
-                                fit: BoxFit.fill,
-                              )
-                            : Image.asset(
-                              'assets/images/avatar.png',
-                              fit: BoxFit.fill,
-                            )
-                      ),
+                          width: 180.0,
+                          height: 180.0,
+                          child: (_image != null)
+                              ? Image.file(
+                                  _image,
+                                  fit: BoxFit.fill,
+                                )
+                              : Image.asset(
+                                  'assets/images/avatar.png',
+                                  fit: BoxFit.fill,
+                                )),
                     ),
                   ),
                 ),
@@ -188,7 +189,8 @@ class _BodyState extends State<Body> {
                     fileName);
                 print('Resgistro es: $registroOk');
                 if (registroOk) {
-                  Navigator.pushReplacementNamed(context, 'ProfilePage');
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, 'ProfilePage', (route) => false);
                 } else {
                   mostrarAlerta(context, 'Login y Registro incorrecto',
                       'Revise sus credenciales nuevamente');
